@@ -110,5 +110,11 @@ ORDER BY candidate_id ASC
 -- OUTPUT only candidate ID's
 -- ORDER BY ASC
 
+-- Costco is known for their rotisserie chickens they sell, not just because they are delicious, but because they are a loss leader in this area.
+-- Using the sales table, calculate how much money they have lost on their rotisserie chickens this year. Round to the nearest whole number.
+SELECT ROUND(SUM(lost_revenue_millions), 0) AS lost_revenue
+FROM sales;
+-- OUTPUT SUM() of lost_revenue_millions
+-- ROUND() the sum to nearest whole number
 
 
