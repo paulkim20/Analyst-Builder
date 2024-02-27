@@ -30,3 +30,23 @@ FROM customers
 WHERE age > 50
   OR total_purchase > 200;
 -- Output should include the aggregate function, COUNT(), to analyze how many customers received the discount
+
+-- Million Dollar Store
+-- Write a query that returns all of the stores whose average yearly revenue is greater than one million dollars.
+SELECT store_id, ROUND(AVG(revenue), 2) AS avg_yearly_revenue
+FROM stores
+GROUP BY store_id
+HAVING avg_yearly_revenue > 1000000
+ORDER BY store_id
+-- Output store ID and AVG(revenue) 
+-- Round to 2 decimal places and order by store ID
+
+-- Low Quality YouTube Video
+-- Write a query to report the IDs of low quality YouTube videos
+-- A video is considered low quality if the like percentage of the video (number of likes divided by the total number of votes) is less than 55%.
+SELECT video_id
+FROM youtube_videos
+WHERE (thumbs_up / (thumbs_up+thumbs_down)) *100 < 55
+ORDER BY video_id ASC
+-- Output should only include video_id
+-- Order by ID in ASC order
