@@ -1,3 +1,4 @@
+-- Tesla Models
 -- Tesla just provided their quarterly sales for their major vehicles.
 -- Determine which Tesla Model has made the most profit.
 SELECT *, (car_price - production_cost) * cars_sold AS profit
@@ -6,3 +7,26 @@ ORDER BY profit DESC
 LIMIT 1;
 -- Output should include all columns
 -- Have to use calculations to solve for profit
+
+-- Heart Attack Risk
+-- Dr. Obrien has seen an uptick in heart attacks for his patients over the past few months
+-- We need to identify which clients he needs to reach out to and provide that information to Dr. Obrien.
+-- If a patient is over the age of 50, cholesterol level of 240 or over, and weight 200 or greater, then they are at high risk of having a heart attack.
+SELECT *
+FROM patients
+WHERE age > 50
+  AND cholesterol >= 240
+  AND weight >= 200
+ORDER BY cholesterol DESC;
+-- Output should include all patients
+-- Output should only include values of patients over 50 y/o, 240 cholesterol, and 200 b/w
+-- Order by Cholesterol DESC
+
+-- Apply discount
+-- A Computer store is offering a 25% discount for all new customers over the age of 65 or customers that spend more than $200 on their first purchase.
+-- The owner wants to know how many customers received that discount since they started the promotion.
+SELECT COUNT(*)
+FROM customers
+WHERE age > 50
+  OR total_purchase > 200;
+-- Output should include the aggregate function, COUNT(), to analyze how many customers received the discount
