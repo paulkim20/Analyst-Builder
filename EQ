@@ -50,3 +50,35 @@ WHERE (thumbs_up / (thumbs_up+thumbs_down)) *100 < 55
 ORDER BY video_id ASC
 -- Output should only include video_id
 -- Order by ID in ASC order
+
+-- Chocolate
+-- Write a Query to return bakery items that contain the word "Chocolate".
+SELECT product_name
+FROM bakery_items
+WHERE product_name LIKE '%Chocolate%'
+-- Filter the output of product name
+
+-- On The Way Out
+-- Herschel's Manufacturing Plant has hit some hard times with the economy and unfortunately they need to let some people go.
+-- They figure the younger employees need their jobs more as they are growing families so they decide to let go of their 3 oldest employees.
+SELECT employee_id
+FROM employees
+ORDER BY birth_date ASC
+LIMIT 3;
+-- OUTPUT employee_id of the three oldest employees
+-- ORDER BY DESC order
+
+-- Yan is a sandwich enthusiast and is determined to try every combination of sandwich possible.
+-- Below we have 2 tables, bread and meats
+-- He wants to start with every combination of bread and meats and then move on from there, but he wants to do it in a systematic way
+SELECT bread_name, meat_name
+FROM bread_table
+CROSS JOIN meat_table
+ORDER BY bread_name, meat_name
+-- OUTPUT all combinations of bread and meat
+-- ORDER BY bread, then meat ASC for alphabetical order
+
+
+
+
+
