@@ -78,7 +78,37 @@ ORDER BY bread_name, meat_name
 -- OUTPUT all combinations of bread and meat
 -- ORDER BY bread, then meat ASC for alphabetical order
 
+-- Electric Bike Replacement
+-- After about 10,000 miles, Electric bike batteries begin to degrade and need to be replaced.
+SELECT COUNT(*)
+FROM bikes
+WHERE miles > 10000
+-- OUTPUT amt of bikes that need to be replaced
+-- Use an aggregate function to determine answer
 
+-- Car Failure
+-- Cars need to be inspected every year in order to pass inspection and be street legal.
+-- If a car has any critical issues it will fail inspection or if it has more than 3 minor issues it will also fail.
+SELECT owner_name, vehicle
+FROM inspections
+WHERE critical_issues < 1
+  AND minor_issues <= 3
+ORDER BY owner_name ASC
+-- OUTPUT owner_name + vehicle 
+-- Only include those that have passed inspection
+
+-- Perfect Data Analyst
+-- Return all the candidate IDs that have problem solving skills, SQL experience, knows Python or R, and has domain knowledge.
+SELECT candidate_id
+FROM candidates
+WHERE problem_solving = 'X'
+  AND sql_experience = 'X'
+  AND python = 'X'
+  OR r_programming = 'X'
+  AND domain_knowledge = 'X'
+ORDER BY candidate_id ASC
+-- OUTPUT only candidate ID's
+-- ORDER BY ASC
 
 
 
