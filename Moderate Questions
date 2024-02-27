@@ -1,1 +1,19 @@
+-- Senior Citizen Discount
+-- If a customer is 55 or above they qualify for the senior citizen discount. Check which customers qualify.
+-- Assume the current date 1/1/2023.
+SELECT customer_id 
+FROM customers
+WHERE TIMESTAMPDIFF(YEAR, birth_date, '2023-01-01') >= 55
+ORDER BY customer_id ASC
+-- OUTPUT customer_id who qualify for discount ASC order
 
+-- LinkedIn Famous
+-- Write a query to determine the popularity of a post on LinkedIn
+-- Popularity is defined by number of actions (likes, comments, shares, etc.) divided by the number impressions the post received * 100.
+-- If the post receives a score higher than 1 it was very popular.
+SELECT post_id, (actions / impressions) * 100 AS popularity_score
+FROM linkedin_posts
+WHERE (actions / impressions) * 100 > 1
+ORDER BY popularity_score DESC
+-- OUTPUT ID and popularity_score
+-- ORDER BY popularity DESC
