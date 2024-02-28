@@ -18,3 +18,31 @@ ORDER BY popularity_score DESC
 -- OUTPUT ID and popularity_score
 -- ORDER BY popularity DESC
 
+-- Company Wide Increase
+-- If our company hits its yearly targets, every employee receives a salary increase depending on what level you are in the company.
+-- Give each Employee who is a level 1 a 10% increase, level 2 a 15% increase, and level 3 a 200% increase.
+SELECT *, CASE
+  WHEN pay_level = 1 THEN salary * 1.1
+  WHEN pay_level = 2 THEN salary * 1.15
+  WHEN pay_level = 3 THEN salary * 3
+  ELSE salary
+END as new_salary
+FROM employees
+-- OUTPUT all columns, including a new column called "new_salary"
+
+-- Media Addicts
+-- Write a query to find the people who spent a higher than average amount of time on social media.
+SELECT first_name
+FROM users
+WHERE user_id IN (
+    SELECT user_id
+    FROM user_time
+    WHERE media_time_minutes > (
+      SELECT AVG(media_time_minutes)
+      FROM user_time
+  )
+)
+ORDER BY first_name;
+-- OUTPUT first_name ASC for alphabetical order
+-- Multiple WHERE statements will have SELECT statements to join the other table
+
