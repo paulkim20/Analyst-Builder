@@ -17,3 +17,4 @@ WHERE (actions / impressions) * 100 > 1
 ORDER BY popularity_score DESC
 -- OUTPUT ID and popularity_score
 -- ORDER BY popularity DESC
+
