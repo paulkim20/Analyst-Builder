@@ -46,3 +46,14 @@ ORDER BY first_name;
 -- OUTPUT first_name ASC for alphabetical order
 -- Multiple WHERE statements will have SELECT statements to join the other table
 
+-- Direct Reports
+-- Write a query to determine how many direct reports each Manager has.
+SELECT dr2.employee_id manager_id, dr2.position manager_title, COUNT(dr1.employee_id) AS direct_report 
+FROM direct_reports dr1
+  JOIN direct_reports dr2
+    ON dr1.managers_id = dr2.employee_id
+WHERE dr2.position LIKE '%Manager%'
+GROUP BY manager_id, manager_title;
+-- OUTPUT Manager ID, Manager Title, and the number of direct reports
+-- Filter on managers
+-- GROUP BY manager's information 
